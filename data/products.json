@@ -1,0 +1,102 @@
+[
+    {
+        "product_name": "Lemon Juice",
+        "price": 16.2,
+        "description": "iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus",
+        "inventory_quantity": 40,
+        "ingredients": "Sugar",
+        "flavor": "montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis",
+        "supplier": "Jabberbean",
+        "image": "/images/lemon-juice.jpg"
+    },
+    {
+        "product_name": "Watermelon Juice",
+        "price": 12.07,
+        "description": "interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in",
+        "inventory_quantity": 89,
+        "ingredients": "Vitamin C",
+        "flavor": "diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo",
+        "supplier": "Lazz",
+        "image": "/images/watermelon-juice.jpg"
+    },
+    {
+        "product_name": "Watermelon Juice",
+        "price": 14.18,
+        "description": "convallis eget eleifend luctus ultricies eu nibh quisque id justo sit",
+        "inventory_quantity": 65,
+        "ingredients": "Water",
+        "flavor": "ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque",
+        "supplier": "LiveZ",
+        "image": "/images/watermelon-juice-2.jpg"
+    },
+    {
+        "product_name": "Mango Juice",
+        "price": 49.9,
+        "description": "erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum",
+        "inventory_quantity": 91,
+        "ingredients": "Water",
+        "flavor": "vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec",
+        "supplier": "Thoughtmix",
+        "image": "/images/mango-juice.jpg"
+    },
+    {
+        "product_name": "Pineapple Juice",
+        "price": 32.16,
+        "description": "risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis",
+        "inventory_quantity": 57,
+        "ingredients": "Salt",
+        "flavor": "libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti",
+        "supplier": "Trilith",
+        "image": "/images/pineapple-juice.jpg"
+    },
+    {
+        "product_name": "Kiwi Juice",
+        "price": 38.61,
+        "description": "convallis eget eleifend luctus ultricies eu nibh quisque id justo",
+        "inventory_quantity": 22,
+        "ingredients": "Honey",
+        "flavor": "erat fermentum justo nec condimentum neque sapien placerat ante nulla justo",
+        "supplier": "Meezzy",
+        "image": "/images/kiwi-juice.jpg"
+    },
+    {
+        "product_name": "Lemon Juice",
+        "price": 11.58,
+        "description": "vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et",
+        "inventory_quantity": 21,
+        "ingredients": "Salt",
+        "flavor": "ut blandit non interdum in ante vestibulum ante ipsum primis in",
+        "supplier": "Quinu",
+        "image": "/images/lemon-juice-2.jpg"
+    },
+    {
+        "product_name": "Apple Juice",
+        "price": 22.13,
+        "description": "nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae",
+        "inventory_quantity": 33,
+        "ingredients": "Water",
+        "flavor": "in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum",
+        "supplier": "Tagcat",
+        "image": "/images/apple-juice.jpg"
+    },
+    {
+        "product_name": "Orange Juice",
+        "price": 12.88,
+        "description": "massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur",
+        "inventory_quantity": 28,
+        "ingredients": "Sugar",
+        "flavor": "ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut",
+        "supplier": "Rooxo",
+        "image": "/images/orange-juice.jpg"
+    },
+    {
+        "product_name": "Watermelon Juice",
+        "price": 39.22,
+        "description": "nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa",
+        "inventory_quantity": 90,
+        "ingredients": "Salt",
+        "flavor": "sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat",
+        "supplier": "Youspan",
+        "image": "/images/watermelon-juice-3.jpg"
+    }
+]
