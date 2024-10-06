@@ -6,21 +6,26 @@
     const path = require('path');
 
     // Route lấy danh sách sản phẩm
-    router.get('/products', (req, res) => {
+    router.get('/products/:id', (req, res) => {
         const filePath = path.join(__dirname, 'data/products.json');
+        const productId = req.params.id;
+    
         fs.readFile(filePath, 'utf-8', (err, data) => {
             if (err) {
                 return res.status(500).send('Không thể đọc tệp JSON.');
             }
             try {
                 const products = JSON.parse(data);
-                res.status(200).json(products);
+                const product = products.find(p => p.id === productId);
+                if (!product) {
+                    return res.status(404).send('Sản phẩm không tồn tại.');
+                }
+                res.status(200).json(product);
             } catch (parseErr) {
                 res.status(500).send('Lỗi trong quá trình parse tệp JSON.');
             }
         });
     });
-
     // Route tạo sản phẩm
     router.post('/products', createProduct);
 

@@ -27,7 +27,9 @@ app.get('/', (req, res) => {
 app.get('/createproducts.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'createproducts.html'));
 });
-
+app.get('/products/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'productDetails.html'));
+});
 // Khởi động server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
