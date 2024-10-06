@@ -23,6 +23,10 @@ app.use('/products/delete', deleteProducts); // Sử dụng deleteproducts.js đ
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+// Route để phục vụ trang tạo sản phẩm
+app.get('/createproducts.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'createproducts.html'));
+});
 
 // Khởi động server
 const PORT = process.env.PORT || 3000;
