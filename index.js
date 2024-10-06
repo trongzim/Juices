@@ -14,6 +14,46 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/products', productRoutes); 
 app.use('/products/create', createProducts); 
 app.use('/products/delete', deleteProducts); 
+app.get('/products', (req, res) => {
+    const filePath = path.join(__dirname, 'data/products.json');
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Không thể đọc tệp JSON.');
+        }
+        try {
+            const products = JSON.parse(data);
+            res.status(200).json(products);
+        } catch (parseErr) {
+            res.status(500).send('Lỗi trong quá trình parse tệp JSON.');
+        }
+    });
+});
+
+app.get('/products/search', (req, res) => {
+    const filePath = path.join(__dirname, 'data/products.json');
+    const searchTerm = req.query.name ? req.query.name.toLowerCase() : '';
+
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Không thể đọc tệp JSON.');
+        }
+        try {
+            const products = JSON.parse(data);
+            const filteredProducts = products.filter(product =>
+                product.product_name.toLowerCase().includes(searchTerm)
+            );
+
+            if (filteredProducts.length > 0) {
+                res.status(200).json(filteredProducts);
+            } else {
+                res.status(404).send('Không tìm thấy sản phẩm.');
+            }
+        } catch (parseErr) {
+            res.status(500).send('Lỗi trong quá trình parse tệp JSON.');
+        }
+    });
+});
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
