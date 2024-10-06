@@ -5,7 +5,6 @@
     const fs = require('fs');
     const path = require('path');
 
-    // Route lấy danh sách sản phẩm
     router.get('/products/:id', (req, res) => {
         const filePath = path.join(__dirname, 'data/products.json');
         const productId = req.params.id;
@@ -26,10 +25,9 @@
             }
         });
     });
-    // Route tạo sản phẩm
+   
     router.post('/products', createProduct);
 
-    // Route xóa sản phẩm
     router.delete('/products/:id', deleteProduct);
 
     module.exports = router;
