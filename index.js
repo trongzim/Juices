@@ -2,51 +2,20 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
+const routes = require('./routes/route'); // Import route.js
+const createProducts = require('./routes/createproducts'); // Import createproducts.js
+const deleteProducts = require('./routes/deleteproducts'); // Import deleteproducts.js
+
+// Middleware để phân tích dữ liệu JSON
+app.use(express.json());
 
 // Middleware để phục vụ các tệp tĩnh từ thư mục 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route để lấy danh sách tất cả sản phẩm
-app.get('/products', (req, res) => {
-    const filePath = path.join(__dirname, 'data/products.json');
-    fs.readFile(filePath, 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Không thể đọc tệp JSON.');
-        }
-        try {
-            const products = JSON.parse(data);
-            res.status(200).json(products);
-        } catch (parseErr) {
-            res.status(500).send('Lỗi trong quá trình parse tệp JSON.');
-        }
-    });
-});
-
-// Route để tìm kiếm sản phẩm theo tên
-app.get('/products/search', (req, res) => {
-    const filePath = path.join(__dirname, 'data/products.json');
-    const searchTerm = req.query.name ? req.query.name.toLowerCase() : '';
-
-    fs.readFile(filePath, 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Không thể đọc tệp JSON.');
-        }
-        try {
-            const products = JSON.parse(data);
-            const filteredProducts = products.filter(product =>
-                product.product_name.toLowerCase().includes(searchTerm)
-            );
-
-            if (filteredProducts.length > 0) {
-                res.status(200).json(filteredProducts);
-            } else {
-                res.status(404).send('Không tìm thấy sản phẩm.');
-            }
-        } catch (parseErr) {
-            res.status(500).send('Lỗi trong quá trình parse tệp JSON.');
-        }
-    });
-});
+// Sử dụng các route
+app.use('/products', routes); // Sử dụng route.js cho các thao tác chính như lấy danh sách sản phẩm
+app.use('/products', createProducts); // Sử dụng createproducts.js để thêm sản phẩm
+app.use('/products', deleteProducts); // Sử dụng deleteproducts.js để xóa sản phẩm
 
 // Route để phục vụ index.html tại đường dẫn gốc
 app.get('/', (req, res) => {
