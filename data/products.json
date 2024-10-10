@@ -1,7 +1,8 @@
 [
     {
+        "id": 1,
         "product_name": "Lemon Juice",
-        "price": 36.000,
+        "price": 36000,
         "description": "iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus",
         "inventory_quantity": 40,
         "ingredients": "Sugar",
@@ -10,8 +11,9 @@
         "image": "/images/lemon-juice.jpg.jpg"
     },
     {
+        "id": 2,
         "product_name": "Watermelon Juice",
-        "price": 42.000,
+        "price": 42000,
         "description": "interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in",
         "inventory_quantity": 89,
         "ingredients": "Vitamin C",
@@ -20,8 +22,9 @@
         "image": "/images/watermelon-juice.jpg"
     },
     {
+        "id": 3,
         "product_name": "Watermelon Juice",
-        "price": 54.000,
+        "price": 54000,
         "description": "convallis eget eleifend luctus ultricies eu nibh quisque id justo sit",
         "inventory_quantity": 65,
         "ingredients": "Water",
@@ -30,8 +33,9 @@
         "image": "/images/watermelon-juice-2.jpg"
     },
     {
+        "id": 4,
         "product_name": "Mango Juice",
-        "price": 49.000,
+        "price": 49000,
         "description": "erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum",
         "inventory_quantity": 91,
         "ingredients": "Water",
@@ -40,8 +44,9 @@
         "image": "/images/mango-juice.jpg"
     },
     {
+        "id": 5,
         "product_name": "Pineapple Juice",
-        "price": 32.000,
+        "price": 32000,
         "description": "risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis",
         "inventory_quantity": 57,
         "ingredients": "Salt",
@@ -50,8 +55,9 @@
         "image": "/images/pineapple-juice.jpg"
     },
     {
+        "id": 6,
         "product_name": "Kiwi Juice",
-        "price": 38.000,
+        "price": 38000,
         "description": "convallis eget eleifend luctus ultricies eu nibh quisque id justo",
         "inventory_quantity": 22,
         "ingredients": "Honey",
@@ -60,8 +66,9 @@
         "image": "/images/kiwi-juice.jpg"
     },
     {
+        "id": 7,
         "product_name": "Lemon Juice",
-        "price": 36.000,
+        "price": 36000,
         "description": "vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et",
         "inventory_quantity": 21,
         "ingredients": "Salt",
@@ -70,8 +77,9 @@
         "image": "/images/lemon-juice-2.jpg"
     },
     {
+        "id":8,
         "product_name": "Apple Juice",
-        "price": 40.000,
+        "price": 40000,
         "description": "nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae",
         "inventory_quantity": 33,
         "ingredients": "Water",
@@ -80,8 +88,9 @@
         "image": "/images/apple-juice.jpg"
     },
     {
+        "id": 9,
         "product_name": "Orange Juice",
-        "price": 48.000,
+        "price": 48000,
         "description": "massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur",
         "inventory_quantity": 28,
         "ingredients": "Sugar",
@@ -90,8 +99,9 @@
         "image": "/images/orange-juice.jpg"
     },
     {
+        "id": 10,
         "product_name": "Watermelon Juice",
-        "price": 39.000,
+        "price": 39000,
         "description": "nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa",
         "inventory_quantity": 90,
         "ingredients": "Salt",

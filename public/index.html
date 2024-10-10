@@ -1,70 +1,37 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cửa Hàng Nước Ép Trái Cây</title>
-    <link rel="stylesheet" href="/css/styles.css"> 
-   
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Danh Sách Sản Phẩm Nước Ép</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
-    <div class="container my-5">
-        
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="text-center">Danh Sách Sản Phẩm Nước Ép</h1>
-            <a href="/products/create" class="btn btn-success">Tạo Sản Phẩm Mới</a> 
-        </div>
-      
-        <div id="products" class="row">
-          
-        </div>
-    </div>
+    <h1>Danh Sách Sản Phẩm Nước Ép</h1>
+    <div id="product-list"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/products')
-                .then(response => response.json())
-                .then(data => {
-                    const productsContainer = document.getElementById('products');
-                    data.forEach(product => {
-                        const productCard = document.createElement('div');
-                        productCard.className = 'col-md-4 mb-4';
-                        productCard.innerHTML = `
-                            <div class="card h-100 shadow-sm">
-                                <img src="${product.image}" class="card-img-top" alt="${product.product_name}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${product.product_name}</h5>
-                                    <p class="card-text">${product.description}</p>
-                                    <p class="card-text"><strong>Giá:</strong> ${product.price} VND</p>
-                                    <button class="btn btn-danger delete-btn" data-id="${product.product_name}">Xóa</button>
-                                    <a href="/products/${product.product_name}" class="btn btn-primary">Xem Chi Tiết</a>
-                                </div>
-                            </div>
-                        `;
-                        productsContainer.appendChild(productCard);
-                    });
+        fetch('/data/products.json')
+            .then(response => response.json())
+            .then(data => {
+                const productList = document.getElementById('product-list');
+                data.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.className = 'product';
 
-                    document.querySelectorAll('.delete-btn').forEach(button => {
-                        button.addEventListener('click', (e) => {
-                            const productId = e.target.getAttribute('data-id');
-                            if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
-                                fetch(`/products/delete/${productId}`, { method: 'DELETE' })
-                                    .then(response => response.text())
-                                    .then(data => {
-                                        alert(data);
-                                        location.reload();  
-                                    })
-                                    .catch(error => console.error('Error:', error));
-                            }
-                        });
-                    });
-                })
-                .catch(error => console.error('Error fetching products:', error));
-        });
+                    productDiv.innerHTML = `
+                        <img src="${product.image}" alt="${product.product_name}">
+                        <h2>${product.product_name}</h2>
+                        <p>Price: ${product.price}</p>
+                        <button onclick="viewDetails(${product.id})">Xem chi tiết</button>
+                    `;
+                    productList.appendChild(productDiv);
+                });
+            });
+
+        function viewDetails(id) {
+            window.location.href = `/products/${id}`;
+        }
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

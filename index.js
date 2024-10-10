@@ -3,17 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
-const productRoutes = require('./routes/route'); 
-const createProducts = require('./routes/createproducts'); 
-const deleteProducts = require('./routes/deleteproducts'); 
-
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/products', productRoutes); 
-app.use('/products/create', createProducts); 
-app.use('/products/delete', deleteProducts); 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/createproducts.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'createproducts.html'));
+});
+
 app.get('/products', (req, res) => {
     const filePath = path.join(__dirname, 'data/products.json');
     fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -54,17 +55,33 @@ app.get('/products/search', (req, res) => {
     });
 });
 
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/createproducts.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'createproducts.html'));
-});
 app.get('/products/:id', (req, res) => {
+    const productId = req.params.id;
+    const filePath = path.join(__dirname, 'data/products.json');
+
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Không thể đọc tệp JSON.');
+        }
+        try {
+            const products = JSON.parse(data);
+            const product = products.find(p => p.id == productId);
+
+            if (product) {
+                res.status(200).json(product);
+            } else {
+                res.status(404).send('Không tìm thấy sản phẩm.');
+            }
+        } catch (parseErr) {
+            res.status(500).send('Lỗi trong quá trình parse tệp JSON.');
+        }
+    });
+});
+
+app.get('/productDetails.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'productDetails.html'));
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
