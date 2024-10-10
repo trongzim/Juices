@@ -3,17 +3,12 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
-app.use(express.json());
+const productRoutes = require('./routes/route'); 
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/createproducts.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'createproducts.html'));
-});
+app.use('/products', productRoutes);
 
 app.get('/products', (req, res) => {
     const filePath = path.join(__dirname, 'data/products.json');
@@ -78,10 +73,14 @@ app.get('/products/:id', (req, res) => {
     });
 });
 
-app.get('/productDetails.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'productDetails.html'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+
+app.get('/productDetails/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'productDetails.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
