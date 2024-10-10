@@ -10,6 +10,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/products', productRoutes);
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 app.get('/products', (req, res) => {
     const filePath = path.join(__dirname, 'data/products.json');
     fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -49,7 +52,6 @@ app.get('/products/search', (req, res) => {
         }
     });
 });
-
 app.get('/products/:id', (req, res) => {
     const productId = req.params.id;
     const filePath = path.join(__dirname, 'data/products.json');
