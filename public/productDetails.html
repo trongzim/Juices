@@ -3,53 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Sản Phẩm Nước Ép</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="product-detail-container">
-        <div class="product-image-container">
-            <img id="product-image" class="product-image" alt="Sản phẩm nước ép">
-        </div>
-        <div class="product-info-container">
-            <h1 id="product-name" class="product-title"></h1>
-            <p id="product-price" class="product-price"></p>
-            <p id="product-description" class="product-description"></p>
-            <table class="product-spec-table">
-                <tr>
-                    <th>Thành phần:</th>
-                    <td id="product-ingredients"></td>
-                </tr>
-                <tr>
-                    <th>Nhà cung cấp:</th>
-                    <td id="product-supplier"></td>
-                </tr>
-                <tr>
-                    <th>Số lượng tồn kho:</th>
-                    <td id="product-inventory"></td>
-                </tr>
-            </table>
-            <button class="btn btn-success btn-add-to-cart">Thêm vào giỏ hàng</button>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img id="product-image" class="img-fluid" alt="Hình ảnh sản phẩm">
+            </div>
+            <div class="col-md-6">
+                <h1 id="product-name" class="product-title"></h1>
+                <p id="product-description" class="product-description"></p>
+                <h4 class="text-danger" id="product-price"></h4>
+                <p><strong>Thành phần:</strong> <span id="product-ingredients"></span></p>
+                <p><strong>Hương vị:</strong> <span id="product-flavor"></span></p>
+                <p><strong>Nhà cung cấp:</strong> <span id="product-supplier"></span></p>
+                <p><strong>Số lượng tồn kho:</strong> <span id="product-quantity"></span></p>
+                <button class="btn btn-danger btn-lg btn-block mt-4">Mua Ngay</button>
+            </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get('id');
-
+            // Lấy thông tin sản phẩm từ API (ví dụ: /products/1)
+            const productId = new URLSearchParams(window.location.search).get('id');
             fetch(`/products/${productId}`)
                 .then(response => response.json())
                 .then(product => {
-                    document.getElementById('product-image').src = product.image;
+                    // Cập nhật nội dung trang chi tiết sản phẩm
                     document.getElementById('product-name').textContent = product.product_name;
-                    document.getElementById('product-price').textContent = `Giá: ${product.price} VND`;
                     document.getElementById('product-description').textContent = product.description;
+                    document.getElementById('product-price').textContent = `${product.price} VND`;
                     document.getElementById('product-ingredients').textContent = product.ingredients;
+                    document.getElementById('product-flavor').textContent = product.flavor;
                     document.getElementById('product-supplier').textContent = product.supplier;
-                    document.getElementById('product-inventory').textContent = product.inventory_quantity;
+                    document.getElementById('product-quantity').textContent = product.inventory_quantity;
+                    document.getElementById('product-image').src = product.image;
                 })
-                .catch(error => console.error('Lỗi khi tải chi tiết sản phẩm:', error));
+                .catch(error => {
+                    console.error('Lỗi khi tải chi tiết sản phẩm:', error);
+                });
         });
     </script>
 </body>
