@@ -1,4 +1,4 @@
-/* Kết hợp Bootstrap vào giao diện */
+/* Import Bootstrap */
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
 
 /* Toàn bộ phần thân trang */
@@ -10,15 +10,15 @@ body {
 
 /* Tiêu đề trang */
 h1 {
-    text-align: center;
     font-size: 2.5rem;
-    color: #FF6347; /* Đổi màu tiêu đề (cam đỏ đẹp) */
-    margin-bottom: 40px;
+    color: #FF6347;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* Các sản phẩm */
+/* Layout sản phẩm */
 #product-list {
     display: flex;
     flex-wrap: wrap;
@@ -35,9 +35,9 @@ h1 {
     padding: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 30px;
 }
 
-/* Hiệu ứng hover cho sản phẩm */
 .product-item:hover {
     transform: scale(1.05);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
@@ -73,7 +73,7 @@ h1 {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #FF6347; /* Màu nút cam đỏ */
+    background-color: #FF6347;
     color: white;
     border: none;
     border-radius: 5px;
@@ -82,9 +82,8 @@ h1 {
     transition: background-color 0.3s;
 }
 
-/* Hiệu ứng hover cho nút */
 .product-item button:hover {
-    background-color: #FF4500; /* Màu cam đậm hơn khi hover */
+    background-color: #FF4500;
 }
 
 /* Điều chỉnh kích thước trên màn hình nhỏ */
@@ -94,202 +93,7 @@ h1 {
     }
 }
 
-body {
-    background-color: #f8f9fa;
-}
-
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-}
-
-h1 {
-    color: #2c3e50;
-}
-
-.card {
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card-body {
-    text-align: center;
-}
-
-.product-image {
-    max-height: 200px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.btn-danger {
-    margin-top: 10px;
-}
-body {
-    background-color: #f5f5f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    font-weight: bold;
-}
-
-.card {
-    transition: transform 0.2s ease;
-    border: none;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-body {
-    text-align: center;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    color: #2980b9;
-}
-
-.btn-primary, .btn-danger {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.btn-success {
-    background-color: #27ae60;
-    border-color: #27ae60;
-    font-weight: bold;
-    padding: 10px 20px;
-    text-transform: uppercase;
-}
-
-.btn-danger {
-    background-color: #e74c3c;
-}
-
-.btn-primary {
-    background-color: #3498db;
-}
-
-.container {
-    max-width: 1200px;
-}
-
-/* Kết hợp với Bootstrap */
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
-
-/* Tiêu đề sản phẩm */
-.product-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Mô tả sản phẩm */
-.product-description {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* Bảng chi tiết sản phẩm */
-.table th {
-    width: 30%;
-    color: #555;
-}
-
-.table td {
-    width: 70%;
-    color: #333;
-}
-
-/* Hình ảnh sản phẩm */
-.img-fluid {
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Nút Add to Cart */
-.btn-danger {
-    background-color: #FF6347;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-danger:hover {
-    background-color: #FF4500;
-}
-/* Tiêu đề trang */
-h1 {
-    font-size: 2.5rem;
-    color: #FF6347; /* Đổi màu tiêu đề */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-}
-
-/* Layout sản phẩm */
-#product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Thẻ sản phẩm */
-.product-item {
-    margin-bottom: 30px;
-}
-
-.card {
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-img-top {
-    border-radius: 10px 10px 0 0;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.card-text {
-    color: #555;
-}
-/* Container chính cho trang chi tiết sản phẩm */
+/* Card sản phẩm chi tiết */
 .product-detail-container {
     display: flex;
     flex-direction: row;
@@ -302,7 +106,6 @@ h1 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Phần hình ảnh sản phẩm */
 .product-image-container {
     flex: 1;
     padding-right: 30px;
@@ -315,7 +118,7 @@ h1 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Phần thông tin sản phẩm */
+/* Thông tin sản phẩm */
 .product-info-container {
     flex: 2;
     display: flex;
@@ -375,15 +178,40 @@ h1 {
     background-color: #219150;
 }
 
-/* Phần tiêu đề */
-h1 {
-    font-size: 2.5rem;
-    color: #FF6347;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
+/* Nút Danger (nút đỏ) */
+.btn-danger {
+    background-color: #FF6347;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
-/* Kết hợp với Bootstrap */
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+.btn-danger:hover {
+    background-color: #FF4500;
+}
 
+/* Bootstrap Card chung */
+.card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #555;
+}
