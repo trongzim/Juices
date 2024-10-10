@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .product-details {
+            flex: 3;
+            padding-right: 20px;
+        }
+        .product-image img {
+            width: 100%;
+            max-width: 400px;
+        }
+        .product-info {
+            padding-top: 10px;
+        }
+        .product-icons {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .product-icons img {
+            width: 80px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -22,14 +51,35 @@
                 <p><strong>Inventory Quantity:</strong> <span id="product-quantity"></span></p>
             </div>
         </div>
+        <div class="product-icons">
+            <!-- These icons represent other products, clicking them will change the main product details -->
+            <img src="/images/lemon-juice.jpg" data-id="1" alt="Lemon Juice" />
+            <img src="/images/apple-juice.jpg" data-id="2" alt="Apple Juice" />
+            <img src="/images/orange-juice.jpg" data-id="3" alt="Orange Juice" />
+            <!-- Add more product icons as needed -->
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Fetch the initial product details based on the product ID from the URL
             const productId = new URLSearchParams(window.location.search).get('id');
+            fetchProductDetails(productId);
+
+            // Add event listeners to the small product icons
+            document.querySelectorAll('.product-icons img').forEach(icon => {
+                icon.addEventListener('click', function () {
+                    const newProductId = this.getAttribute('data-id');
+                    fetchProductDetails(newProductId); // Fetch and update product details
+                });
+            });
+        });
+
+        function fetchProductDetails(productId) {
             fetch(`/products/${productId}`)
                 .then(response => response.json())
                 .then(product => {
+                    // Update the page with the new product details
                     document.getElementById('product-name').textContent = product.product_name;
                     document.getElementById('product-description').textContent = product.description;
                     document.getElementById('product-price').textContent = `${product.price} VND`;
@@ -40,7 +90,7 @@
                     document.getElementById('product-image').src = product.image;
                 })
                 .catch(error => console.error('Error fetching product details:', error));
-        });
+        }
     </script>
 </body>
 </html>
