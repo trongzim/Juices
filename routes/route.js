@@ -1,7 +1,6 @@
     const express = require('express');
     const router = express.Router();
-    const createProduct = require('./createproducts');
-    const deleteProduct = require('./deleteproducts');
+
     const fs = require('fs');
     const path = require('path');
 
@@ -26,8 +25,6 @@
         });
     });
    
-    router.post('/products', createProduct);
 
-    router.delete('/products/:id', deleteProduct);
 
     module.exports = router;
