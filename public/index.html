@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +8,54 @@
 </head>
 <body>
     <h1>Danh Sách Sản Phẩm Nước Ép</h1>
-    <div id="product-list"></div>
+    <div id="product-list">
+        <!-- Danh sách sản phẩm sẽ được hiển thị ở đây -->
+    </div>
 
     <script>
-        fetch('/data/products.json')
-            .then(response => response.json())
-            .then(data => {
-                const productList = document.getElementById('product-list');
-                data.forEach(product => {
-                    const productDiv = document.createElement('div');
-                    productDiv.className = 'product';
+        document.addEventListener('DOMContentLoaded', function () {
+            // Đọc danh sách sản phẩm từ server
+            fetch('/products')
+                .then(response => response.json())
+                .then(products => {
+                    const productList = document.getElementById('product-list');
+                    
+                    // Duyệt qua mỗi sản phẩm và hiển thị
+                    products.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.className = 'product-item';
 
-                    productDiv.innerHTML = `
-                        <img src="${product.image}" alt="${product.product_name}">
-                        <h2>${product.product_name}</h2>
-                        <p>Price: ${product.price}</p>
-                        <button onclick="viewDetails(${product.id})">Xem chi tiết</button>
-                    `;
-                    productList.appendChild(productDiv);
+                        const productImage = document.createElement('img');
+                        productImage.src = product.image; // Hình ảnh sản phẩm
+                        productImage.alt = product.product_name;
+                        productDiv.appendChild(productImage);
+
+                        const productName = document.createElement('h2');
+                        productName.textContent = product.product_name; // Tên sản phẩm
+                        productDiv.appendChild(productName);
+
+                        const productPrice = document.createElement('p');
+                        productPrice.textContent = `Giá: ${product.price} VND`; // Giá sản phẩm
+                        productDiv.appendChild(productPrice);
+
+                        const productDescription = document.createElement('p');
+                        productDescription.textContent = product.description; // Mô tả sản phẩm
+                        productDiv.appendChild(productDescription);
+
+                        const viewDetailsButton = document.createElement('button');
+                        viewDetailsButton.textContent = 'Xem chi tiết'; // Nút xem chi tiết
+                        viewDetailsButton.onclick = function () {
+                            window.location.href = `/products/${product.id}`;
+                        };
+                        productDiv.appendChild(viewDetailsButton);
+
+                        productList.appendChild(productDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Lỗi khi tải sản phẩm:', error);
                 });
-            });
-
-        function viewDetails(id) {
-            window.location.href = `/products/${id}`;
-        }
+        });
     </script>
 </body>
 </html>
