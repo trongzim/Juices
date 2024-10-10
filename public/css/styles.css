@@ -289,3 +289,101 @@ h1 {
 .card-text {
     color: #555;
 }
+/* Container chính cho trang chi tiết sản phẩm */
+.product-detail-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Phần hình ảnh sản phẩm */
+.product-image-container {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Phần thông tin sản phẩm */
+.product-info-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Bảng thông số sản phẩm */
+.product-spec-table {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+.product-spec-table th, .product-spec-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-spec-table th {
+    text-align: left;
+    font-weight: bold;
+    color: #666;
+}
+
+/* Nút "Thêm vào giỏ hàng" */
+.btn-add-to-cart {
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #219150;
+}
+
+/* Phần tiêu đề */
+h1 {
+    font-size: 2.5rem;
+    color: #FF6347;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* Kết hợp với Bootstrap */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
