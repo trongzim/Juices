@@ -215,3 +215,101 @@ h1 {
 .card-text {
     color: #555;
 }
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #ff6347;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Container for the product detail section */
+.container {
+    margin-top: 30px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-md-6 {
+    padding: 20px;
+}
+
+#product-image {
+    max-width: 80%; /* Tăng kích thước ảnh lên 80% của container */
+    height: auto; /* Giữ tỉ lệ hình ảnh */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ddd;
+    margin: 0 auto;
+    display: block;
+}
+
+#product-name {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+#product-description {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+#product-price,
+#product-quantity,
+#product-ingredients,
+#product-flavor,
+#product-supplier {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+strong {
+    color: #ff6347;
+}
+
+/* Back button */
+#back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #ff6347;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+    background-color: #ff4500;
+}
+
+/* Title Styling */
+#page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #ff6347;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+

@@ -74,7 +74,7 @@
         "ingredients": "Salt",
         "flavor": "ut blandit non interdum in ante vestibulum ante ipsum primis in",
         "supplier": "Quinu",
-        "image": "/images/lemon-juice-2.jpg"
+        "image": "/images/lemon-juice2.jpg"
     },
     {
         "id":8,
@@ -85,7 +85,7 @@
         "ingredients": "Water",
         "flavor": "in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum",
         "supplier": "Tagcat",
-        "image": "/images/apple-juice.jpg"
+        "image": "/images/apple-juice2.jpg"
     },
     {
         "id": 9,

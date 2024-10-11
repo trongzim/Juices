@@ -3,94 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Chi Tiết Sản Phẩm</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <style>
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-        .product-details {
-            flex: 3;
-            padding-right: 20px;
-        }
-        .product-image img {
-            width: 100%;
-            max-width: 400px;
-        }
-        .product-info {
-            padding-top: 10px;
-        }
-        .product-icons {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .product-icons img {
-            width: 80px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <div class="product-details">
-            <div class="product-image">
-                <img id="product-image" alt="Product Image" />
+        <h1 id="page-title">Chi Tiết Sản Phẩm</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img id="product-image" class="img-fluid" src="" alt="Product Image">
             </div>
-            <div class="product-info">
-                <h1 id="product-name">Product Name</h1>
-                <p id="product-description">Description</p>
-                <p><strong>Price:</strong> <span id="product-price"></span> VND</p>
-                <p><strong>Ingredients:</strong> <span id="product-ingredients"></span></p>
-                <p><strong>Flavor:</strong> <span id="product-flavor"></span></p>
-                <p><strong>Supplier:</strong> <span id="product-supplier"></span></p>
-                <p><strong>Inventory Quantity:</strong> <span id="product-quantity"></span></p>
+            <div class="col-md-6">
+                <h2 id="product-name"></h2>
+                <p id="product-description"></p>
+                <p><strong>Giá: </strong><span id="product-price"></span> VND</p>
+                <p><strong>Số lượng tồn: </strong><span id="product-quantity"></span></p>
+                <p><strong>Thành phần: </strong><span id="product-ingredients"></span></p>
+                <p><strong>Hương vị: </strong><span id="product-flavor"></span></p>
+                <p><strong>Nhà cung cấp: </strong><span id="product-supplier"></span></p>
+                <a id="back-button" href="/">Quay Lại</a>
             </div>
-        </div>
-        <div class="product-icons">
-            <!-- These icons represent other products, clicking them will change the main product details -->
-            <img src="/images/lemon-juice.jpg" data-id="1" alt="Lemon Juice" />
-            <img src="/images/apple-juice.jpg" data-id="2" alt="Apple Juice" />
-            <img src="/images/orange-juice.jpg" data-id="3" alt="Orange Juice" />
-            <!-- Add more product icons as needed -->
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Fetch the initial product details based on the product ID from the URL
-            const productId = new URLSearchParams(window.location.search).get('id');
-            fetchProductDetails(productId);
-
-            // Add event listeners to the small product icons
-            document.querySelectorAll('.product-icons img').forEach(icon => {
-                icon.addEventListener('click', function () {
-                    const newProductId = this.getAttribute('data-id');
-                    fetchProductDetails(newProductId); // Fetch and update product details
-                });
-            });
-        });
-
-        function fetchProductDetails(productId) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
             fetch(`/products/${productId}`)
                 .then(response => response.json())
                 .then(product => {
-                    // Update the page with the new product details
                     document.getElementById('product-name').textContent = product.product_name;
                     document.getElementById('product-description').textContent = product.description;
-                    document.getElementById('product-price').textContent = `${product.price} VND`;
+                    document.getElementById('product-price').textContent = product.price;
+                    document.getElementById('product-quantity').textContent = product.inventory_quantity;
                     document.getElementById('product-ingredients').textContent = product.ingredients;
                     document.getElementById('product-flavor').textContent = product.flavor;
                     document.getElementById('product-supplier').textContent = product.supplier;
-                    document.getElementById('product-quantity').textContent = product.inventory_quantity;
                     document.getElementById('product-image').src = product.image;
                 })
-                .catch(error => console.error('Error fetching product details:', error));
-        }
+                .catch(err => console.error(err));
+        });
     </script>
 </body>
 </html>
