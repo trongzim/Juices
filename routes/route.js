@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
-// Lấy danh sách tất cả các sản phẩm
+
 router.get('/products', (req, res) => {
     const filePath = path.join(__dirname, '../data/products.json');
     fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -19,7 +19,7 @@ router.get('/products', (req, res) => {
     });
 });
 
-// Lấy thông tin chi tiết sản phẩm theo ID
+
 router.get('/products/:id', (req, res) => {
     const productId = req.params.id;
     const filePath = path.join(__dirname, '../data/products.json');

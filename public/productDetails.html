@@ -8,22 +8,35 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <h1 id="page-title">Chi Tiết Sản Phẩm</h1>
-        <div class="row">
-            <div class="col-md-6">
+        <div class="product-detail-container row">
+            <div class="col-md-6 product-image-container">
                 <img id="product-image" class="img-fluid" src="" alt="Product Image">
             </div>
-            <div class="col-md-6">
-                <h2 id="product-name"></h2>
-                <p id="product-description"></p>
-                <p><strong>Giá: </strong><span id="product-price"></span> VND</p>
+            <div class="col-md-6 product-info-container">
+                <h2 id="product-name" class="product-title"></h2>
+                <p id="product-description" class="product-description"></p>
+                <p><strong>Giá: </strong><span id="product-price" class="product-price"></span> VND</p>
                 <p><strong>Số lượng tồn: </strong><span id="product-quantity"></span></p>
                 <p><strong>Thành phần: </strong><span id="product-ingredients"></span></p>
                 <p><strong>Hương vị: </strong><span id="product-flavor"></span></p>
                 <p><strong>Nhà cung cấp: </strong><span id="product-supplier"></span></p>
-                <a id="back-button" href="/">Quay Lại</a>
+                <a id="back-button" class="btn btn-secondary mt-4" href="/">Quay Lại</a>
             </div>
+        </div>
+      
+        <div class="feedback-container mt-5">
+            <h3>Đánh giá và Phản hồi</h3>
+            <div class="rating">
+                <span class="star" data-value="5">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="1">★</span>
+            </div>
+            <textarea id="feedback-text" class="form-control mt-3" rows="4" placeholder="Viết phản hồi của bạn tại đây..."></textarea>
+            <button class="btn btn-primary mt-3" id="submit-feedback">Gửi Phản Hồi</button>
         </div>
     </div>
 
@@ -32,6 +45,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
             
+          
             fetch(`/products/${productId}`)
                 .then(response => response.json())
                 .then(product => {
@@ -45,6 +59,30 @@
                     document.getElementById('product-image').src = product.image;
                 })
                 .catch(err => console.error(err));
+            
+           
+            const stars = document.querySelectorAll('.star');
+            let rating = 0;
+
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    rating = star.getAttribute('data-value');
+                    stars.forEach(s => s.style.color = '#ddd');
+                    for (let i = 0; i < rating; i++) {
+                        stars[i].style.color = '#FF6347';
+                    }
+                });
+            });
+
+            document.getElementById('submit-feedback').addEventListener('click', () => {
+                const feedbackText = document.getElementById('feedback-text').value;
+                if (rating === 0 || feedbackText.trim() === '') {
+                    alert('Vui lòng đánh giá và nhập phản hồi!');
+                    return;
+                }
+                alert(`Đánh giá của bạn: ${rating} sao\nPhản hồi: ${feedbackText}`);
+                
+            });
         });
     </script>
 </body>
