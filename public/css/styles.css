@@ -4,12 +4,30 @@
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 20px;
+    background: url('/images/background.jpg') ;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Tiêu đề trang */
+/* Navbar Styles */
+.navbar {
+    background-color: #343a40;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #FF6347 !important;
+}
+
+/* Page Title */
 h1, #page-title {
     font-size: 2.5rem;
     color: #FF6347;
@@ -27,7 +45,7 @@ h1, #page-title {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -83,6 +101,7 @@ h1, #page-title {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    padding-bottom: 100px; /* Ensure footer does not overlap */
 }
 
 /* Mỗi sản phẩm */
@@ -189,24 +208,22 @@ h1, #page-title {
     background-color: #FF4500;
 }
 
-
-
-/* Nút "Danger" (nút đỏ) */
-.btn-danger {
-    background-color: #FF6347;
-    border: none;
-    transition: background-color 0.3s ease;
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.btn-danger:hover {
-    background-color: #FF4500;
-}
-
-/* Bootstrap Card chung */
+/* Card Styles */
 .card {
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .card:hover {
@@ -221,12 +238,23 @@ h1, #page-title {
 }
 
 .card-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .card-text {
     color: #555;
+}
+
+/* Button Styles */
+.btn-outline-success {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #ffffff;
 }
 
 /* Container chính */
@@ -242,64 +270,6 @@ h1, #page-title {
 
 .col-md-6 {
     padding: 20px;
-}
-/* Import Bootstrap */
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
-
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Tiêu đề trang */
-#page-title {
-    font-size: 2.8rem;
-    color: #FF6347;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: bold;
-}
-
-/* Container chi tiết sản phẩm */
-.product-detail-container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-/* Hình ảnh sản phẩm */
-.product-image-container {
-    flex: 1;
-    padding-right: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#product-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 2px solid #ddd;
-}
-
-/* Thông tin sản phẩm */
-.product-info-container {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Feedback Section */
@@ -346,16 +316,5 @@ body {
 
 /* Nút "Gửi Phản Hồi" */
 #submit-feedback {
-    background-color: #3498db;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#submit-feedback:hover {
-    background-color: #2980b9;
+    background-color: #3498
 }

@@ -6,49 +6,69 @@
     <title>Danh Sách Sản Phẩm Nước Ép</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
+   
 </head>
 <body>
-    <h1>Danh Sách Sản Phẩm Nước Ép</h1>
-    <div id="product-list">
-    
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-auto" href="#">2024 - Phú Trọng Store - 2024</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Danh Sách Sản Phẩm Nước Ép</h1>
+        <div id="product-list" class="row g-4">
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 mt-5">
+        <p>© 2024 Fruit Juice Store - All rights reserved.</p>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-           
             fetch('/products')
                 .then(response => response.json())
                 .then(products => {
                     const productList = document.getElementById('product-list');
                     
-                
                     products.forEach(product => {
                         const productDiv = document.createElement('div');
-                        productDiv.className = 'col-md-4 product-item'; 
+                        productDiv.className = 'col-md-4';
+
+                        const productCard = document.createElement('div');
+                        productCard.className = 'card h-100 shadow-sm';
 
                         const productImage = document.createElement('img');
                         productImage.src = product.image; // Hình ảnh sản phẩm
                         productImage.alt = product.product_name;
-                        productDiv.appendChild(productImage);
+                        productImage.className = 'card-img-top';
+                        productCard.appendChild(productImage);
 
-                        const productName = document.createElement('h2');
+                        const cardBody = document.createElement('div');
+                        cardBody.className = 'card-body';
+
+                        const productName = document.createElement('h5');
                         productName.textContent = product.product_name; // Tên sản phẩm
-                        productDiv.appendChild(productName);
+                        productName.className = 'card-title text-center';
+                        cardBody.appendChild(productName);
 
                         const productPrice = document.createElement('p');
-                        productPrice.textContent = `Giá: ${product.price.toLocaleString('vi-VN')} VND`; // Giá sản phẩm 
-                        productDiv.appendChild(productPrice);
+                        productPrice.textContent = `Giá: ${product.price.toLocaleString('vi-VN')} VND`; // Giá sản phẩm
+                        productPrice.className = 'card-text text-muted text-center';
+                        cardBody.appendChild(productPrice);
 
-                       
-                        const viewDetailsButton = document.createElement('button');
+                        const viewDetailsButton = document.createElement('a');
                         viewDetailsButton.textContent = 'Xem chi tiết'; // Nút xem chi tiết
-                        viewDetailsButton.onclick = function () {
-                            window.location.href = `/productDetails.html?id=${product.id}`; // Điều hướng đến trang chi tiết
-                        };
-                        productDiv.appendChild(viewDetailsButton);
+                        viewDetailsButton.href = `/productDetails.html?id=${product.id}`;
+                        viewDetailsButton.className = 'btn btn-primary d-block mx-auto mt-3';
+                        cardBody.appendChild(viewDetailsButton);
 
-                        
+                        productCard.appendChild(cardBody);
+                        productDiv.appendChild(productCard);
                         productList.appendChild(productDiv);
                     });
                 })
@@ -58,7 +78,6 @@
         });
     </script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
