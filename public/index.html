@@ -9,21 +9,19 @@
    
 </head>
 <body>
-    <!-- Header Navbar -->
+    
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto" href="#">2024 - Phú Trọng Store - 2024</a>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="container mt-5">
         <h1 class="text-center mb-5">Danh Sách Sản Phẩm Nước Ép</h1>
         <div id="product-list" class="row g-4">
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="text-center py-3 mt-5">
         <p>© 2024 Fruit Juice Store - All rights reserved.</p>
     </footer>
@@ -43,7 +41,7 @@
                         productCard.className = 'card h-100 shadow-sm';
 
                         const productImage = document.createElement('img');
-                        productImage.src = product.image; // Hình ảnh sản phẩm
+                        productImage.src = product.image; 
                         productImage.alt = product.product_name;
                         productImage.className = 'card-img-top';
                         productCard.appendChild(productImage);
@@ -52,17 +50,17 @@
                         cardBody.className = 'card-body';
 
                         const productName = document.createElement('h5');
-                        productName.textContent = product.product_name; // Tên sản phẩm
+                        productName.textContent = product.product_name; 
                         productName.className = 'card-title text-center';
                         cardBody.appendChild(productName);
 
                         const productPrice = document.createElement('p');
-                        productPrice.textContent = `Giá: ${product.price.toLocaleString('vi-VN')} VND`; // Giá sản phẩm
+                        productPrice.textContent = `Giá: ${product.price.toLocaleString('vi-VN')} VND`; 
                         productPrice.className = 'card-text text-muted text-center';
                         cardBody.appendChild(productPrice);
 
                         const viewDetailsButton = document.createElement('a');
-                        viewDetailsButton.textContent = 'Xem chi tiết'; // Nút xem chi tiết
+                        viewDetailsButton.textContent = 'Xem chi tiết'; 
                         viewDetailsButton.href = `/productDetails.html?id=${product.id}`;
                         viewDetailsButton.className = 'btn btn-primary d-block mx-auto mt-3';
                         cardBody.appendChild(viewDetailsButton);
