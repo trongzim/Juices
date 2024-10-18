@@ -2,7 +2,7 @@
     {
         "id": 1,
         "product_name": "Lemon Juice",
-        "price": 36000,
+        "price": 50000,
         "description": "iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus",
         "inventory_quantity": 40,
         "ingredients": "Sugar",
